@@ -1,69 +1,174 @@
-/* Card Style */
+/* Container Card */
 .hu-form-card {
-  max-width: 380px;
-  margin: 5vh auto;
-  padding: 2em 1.5em 2.5em 1.5em;
+  max-width: 420px;
+  width: 95%;
+  min-width: 320px;
+  margin: 6vh auto 12vh auto;
+  padding: 3.5em 2.5em 4.5em 2.5em;
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(30,60,90,0.14);
+  border-radius: 20px;
+  box-shadow: 0 6px 28px rgba(30, 60, 90, 0.18);
   display: flex;
   flex-direction: column;
-  gap: 2em;
-}
-
-.hu-form-card label {
-  font-size: 1.3em;
-  font-weight: 600;
-  margin-bottom: 0.4em;
-}
-
-.hu-input-large {
-  font-size: 1.3em;
-  padding: 1em .7em;
-  border: 2.5px solid #dadada;
-  border-radius: 8px;
-  outline: none;
-  width: 100%;
+  gap: 3em;
   box-sizing: border-box;
-  background: #f9f9fb;
-  margin-bottom: 0.5em;
-  transition: border-color 0.16s;
+  -webkit-tap-highlight-color: transparent; /* Removes blue highlight on tap */
 }
 
+/* Labels */
+.hu-form-card label {
+  font-size: 1.95em;
+  font-weight: 700;
+  margin-bottom: 0.8em;
+  color: #222;
+  user-select: none;
+}
+
+/* Input Fields */
+.hu-input-large {
+  font-size: 2.3em;
+  padding: 2em 1.5em;
+  border: 3px solid #ccc;
+  border-radius: 12px;
+  outline-offset: 2px;
+  background: #f9f9fb;
+  color: #111;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  user-select: text;
+  width: 100%;
+}
+
+.hu-input-large:focus {
+  border-color: #36c257;
+  background-color: #e7f7e8;
+}
+
+/* Validation States */
 .hu-input-large.valid {
   border-color: #36c257;
+  background-color: #e7f7e8;
 }
 
 .hu-input-large.invalid {
   border-color: #e03c3c;
+  background-color: #fce6e6;
 }
 
+/* Submit Button */
+.hu-btn-large {
+  width: 100%;
+  font-size: 2.3em;
+  font-weight: 800;
+  padding: 1.8em 2em;
+  border-radius: 14px;
+  border: none;
+  background-color: #36c257;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(54, 194, 87, 0.9);
+  user-select: none;
+  transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hu-btn-large:hover:not(:disabled) {
+  background-color: #2fa94f;
+  box-shadow: 0 8px 30px rgba(54, 194, 87, 1);
+}
+
+.hu-btn-large:active:not(:disabled) {
+  background-color: #298b44;
+  box-shadow: 0 4px 12px rgba(54, 194, 87, 0.7);
+}
+
+.hu-btn-large:disabled {
+  background-color: #94d7a5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Success message */
 .hu-success-message {
   position: fixed;
   top: 18vh;
-  left: 0; right: 0;
-  text-align: center;
-  z-index: 9999;
+  left: 5vw;
+  right: 5vw;
+  max-width: 400px;
+  margin: 0 auto;
   background: #d4ffd7;
   color: #156833;
-  font-size: 1.6em;
-  font-weight: 700;
-  padding: 1em 0.5em;
-  border-radius: 10px;
-  margin: auto;
-  box-shadow: 0 6px 18px rgba(48,80,70,0.15);
+  font-size: 2.4em;
+  font-weight: 800;
+  text-align: center;
+  padding: 1.8em 1.2em;
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(48, 80, 70, 0.25);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease-in-out;
+  user-select: none;
+  z-index: 9999;
 }
 
 .hu-success-message.visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
-@media (pointer: coarse) {
-  .hu-input-large {
-    font-size: 1.6em;
-    padding: 1.5em 1em;
+/* Touch and Mobile Optimizations */
+@media (pointer: coarse), (max-width: 600px) {
+  .hu-form-card {
+    padding: 4em 3em 5em 3em;
+    max-width: 100%;
+    margin: 4vh auto 14vh auto;
+    gap: 3.5em;
   }
+
+  .hu-form-card label {
+    font-size: 2.4em;
+  }
+
+  .hu-input-large {
+    font-size: 2.8em;
+    padding: 2.4em 1.8em;
+  }
+
+  .hu-btn-large {
+    font-size: 2.8em;
+    padding: 2.2em 2.5em;
+  }
+
+  .hu-success-message {
+    font-size: 2.8em;
+    left: 3vw;
+    right: 3vw;
+    padding: 2.2em 1.5em;
+  }
+}
+
+/* Additional Accessibility Enhancements */
+.hu-input-large::-webkit-input-placeholder {
+  font-size: 1.9em;
+  color: #999;
+}
+
+.hu-input-large:-moz-placeholder {
+  font-size: 1.9em;
+  color: #999;
+}
+
+.hu-input-large::-moz-placeholder {
+  font-size: 1.9em;
+  color: #999;
+}
+
+.hu-input-large:-ms-input-placeholder {
+  font-size: 1.9em;
+  color: #999;
+}
+
+/* Prevent zooming on focus on mobile */
+input, textarea, select, button {
+  font-size: 16px;
 }
