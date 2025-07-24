@@ -1,3 +1,5 @@
+console.log('HU Form Enhancer content script loaded');
+
 (function() {
   // 1. Inject UI if not present
   let hostForm = document.querySelector('.hu-form-card');
@@ -101,3 +103,4 @@
   // Optional: Touch accessiblity improvement
   document.body.style.touchAction = "manipulation";
 })();
+
