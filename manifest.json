@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "HU Form Enhancer",
+  "version": "1.0",
+  "description": "Enhances HU forms with validation, auto-focus, and touch UI.",
+  "content_scripts": [
+    {
+      "matches": ["*://*.de.pwo.ag/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}
